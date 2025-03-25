@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 const images = [
-  "/assets/game-lts.webp",
   "/assets/product1.jpg",
+  "/assets/game-lts.webp",
   "/assets/product3.jpg",
 ];
 
@@ -14,8 +14,8 @@ const descriptions = [
 
 const Productos = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Auto-change slides every 10 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -37,7 +37,7 @@ const Productos = () => {
 
   return (
     <div>
-      <div className="header-separator"></div> {/* ✅ Added separator */}
+      <div className="header-separator"></div>
 
       <div style={styles.container}>
         <h2 style={styles.title}>PRODUCTOS</h2>
@@ -49,7 +49,12 @@ const Productos = () => {
           <button onClick={prevSlide} style={styles.arrowLeft}>{"<"}</button>
 
           <div style={styles.imageContainer}>
-            <img src={images[currentIndex]} alt="Producto" style={styles.image} />
+            <img
+              src={images[currentIndex]}
+              alt="Producto"
+              style={styles.image}
+              onClick={() => setIsModalOpen(true)}
+            />
             <div style={styles.caption}>{descriptions[currentIndex]}</div>
           </div>
 
@@ -68,6 +73,21 @@ const Productos = () => {
             />
           ))}
         </div>
+
+        {/* ✅ Fullscreen Modal */}
+        {isModalOpen && (
+          <div
+            style={styles.modalOverlay}
+            onClick={() => setIsModalOpen(false)}
+          >
+            <img
+              src={images[currentIndex]}
+              alt="Producto ampliado"
+              style={styles.modalImage}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -100,17 +120,22 @@ const styles = {
     width: "100%",
     height: "auto",
     borderRadius: "10px",
+    cursor: "pointer",
   },
   caption: {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
     color: "white",
-    padding: "10px",
+    padding: "6px 12px",
     position: "absolute",
-    bottom: "10px",
+    bottom: "225px",
     left: "50%",
     transform: "translateX(-50%)",
     borderRadius: "5px",
-    fontSize: "14px",
+    fontSize: "12px",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    maxWidth: "90%",
   },
   arrowLeft: {
     fontSize: "20px",
@@ -133,6 +158,25 @@ const styles = {
     margin: "0 5px",
     display: "inline-block",
     borderRadius: "50%",
+    cursor: "pointer",
+  },
+  modalOverlay: {
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    zIndex: 1000,
+  },
+  modalImage: {
+    maxWidth: "90%",
+    maxHeight: "90%",
+    borderRadius: "10px",
+    boxShadow: "0 0 20px rgba(255,255,255,0.2)",
     cursor: "pointer",
   },
 };

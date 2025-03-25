@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom"; // ✅ Import Link
-const heroImage = `${process.env.PUBLIC_URL}/assets/game-lts.webp`;
+const heroImage = `${process.env.PUBLIC_URL}/assets/product1.jpg`;
 
 const Home = () => {
   return (
     <div>
-      <div style={{ width: "100%", height: "4px", background: "#002855", marginTop: "90px" }}></div>
+      <div style={{ width: "100%", height: "4px", background: "#002855", marginTop: "-50px" }}></div>
 
 
       <div style={styles.container}>
