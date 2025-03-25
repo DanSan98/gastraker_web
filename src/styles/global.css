@@ -9,12 +9,6 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* ✅ Smooth Gradient Background */
-body {
-  background: linear-gradient(to bottom, #e0eafc, white);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
 
 /* ✅ Header Separator - Sticks to Header */
 .header-separator {
@@ -131,4 +125,9 @@ a:hover {
   .container {
     padding: 10px;
   }
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block; /* optional but often helpful */
 }

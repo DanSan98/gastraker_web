@@ -1,3 +1,4 @@
+/* ========== Base Navbar ========== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -9,10 +10,10 @@
   top: 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  flex-wrap: wrap; /* ✅ allow items to wrap on small screens */
+  /* Remove duplicate flex-wrap; we’ll handle that in the media query */
 }
 
-/* ✅ Header Separator */
+/* Separator */
 .header-separator {
   position: fixed;
   top: 70px;
@@ -23,35 +24,32 @@
   z-index: 999;
 }
 
+/* Logo containers */
 .logoContainer {
   flex: 1;
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
 }
-
 .logo {
   height: 50px;
 }
-
 .smallLogoContainer {
   flex: 1;
   display: flex;
   justify-content: flex-start;
 }
-
 .smallLogo {
   height: 40px;
 }
 
+/* Nav links */
 .navLinks {
   flex: 2;
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap; /* ✅ let them stack on mobile */
 }
-
 .navLink {
   text-decoration: none;
   color: black;
@@ -60,98 +58,68 @@
   white-space: nowrap;
 }
 
-
-/* ✅ RESPONSIVE MOBILE NAVBAR */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-
-  .navLinks {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    width: 100%;
-    padding-left: 10px;
-    margin-top: 10px;
-  }
-
-  .navLink {
-    font-size: 14px;
-    padding: 5px 0;
-  }
-
-  .logoContainer,
-  .smallLogoContainer {
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-  }
-
-  .logo,
-  .smallLogo {
-    height: 35px;
-  }
-}
-/* Existing navbar styles */
-
-/* Responsive adjustments */
-@media only screen and (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .navLinks {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .navLink {
-    padding: 10px 0;
-  }
-
-  .logoContainer, .smallLogoContainer {
-    justify-content: center;
-    padding: 10px 0;
-  }
-}
+/* Mobile Menu Button */
 .mobileMenuButton {
   display: none;
   font-size: 24px;
   background: none;
   border: none;
   cursor: pointer;
+  /* You might want to position this absolutely inside the navbar, if so: */
+  position: absolute;
+  right: 20px;
+  top: 20px;
 }
 
+/* ========== Media Query for <= 768px ========== */
 @media (max-width: 768px) {
-  .mobileMenuButton {
-    display: block;
-    position: absolute;
-    right: 20px;
-    top: 20px;
+
+  /* Stack the navbar items vertically */
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start; /* or center, if you prefer everything centered */
+    padding: 10px;
   }
 
+  /* Show the hamburger button */
+  .mobileMenuButton {
+    display: block;
+  }
+
+  /* Hide the nav links by default (we’ll use .show class to display them) */
   .navLinks {
-    display: none;
+    display: none; 
     flex-direction: column;
+    gap: 10px;
     width: 100%;
     background-color: white;
     position: absolute;
-    top: 70px;
+    top: 70px; /* Just below the fixed navbar */
     left: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
   }
 
   .navLinks.show {
     display: flex;
   }
 
+  /* Link styles for mobile */
   .navLink {
-    padding: 10px;
+    font-size: 14px;
+    padding: 5px 0;
     text-align: center;
+  }
+
+  /* Adjust logo sizes on mobile */
+  .logoContainer, .smallLogoContainer {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+    padding: 0;
+  }
+  .logo, .smallLogo {
+    height: 35px;
   }
 }
