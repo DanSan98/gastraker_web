@@ -1,0 +1,100 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+/* ✅ Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* ✅ Smooth Gradient Background */
+body {
+  background: linear-gradient(to bottom, #e0eafc, white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ✅ Header Separator - Sticks to Header */
+.header-separator {
+  position: fixed;  /* ✅ Moves with header */
+  top: 70px;  /* ✅ Right below the header */
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #002855; /* ✅ Dark blue separator */
+  z-index: 999; /* ✅ Keeps it above content */
+}
+
+/* ✅ Additional Separator */
+.header-separator {
+  width: 100%;
+  height: 3px;
+  background: #002855; /* ✅ Dark blue separator */
+  margin-top: 80px; /* ✅ Space below header */
+}
+
+/* ✅ Main Container */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ✅ Modern Typography */
+h1, h2 {
+  color: #000;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ✅ Section Headers - Modern Separator */
+h1::after, h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0056b3;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* ✅ Buttons - Modern Look */
+button {
+  background: linear-gradient(to right, #002855, #0056b3);
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* ✅ Button Hover - Smooth Effect */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Footer - Thinner & Clean */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 14px;
+}
+
+/* ✅ Links */
+a {
+  color: #0056b3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #002855;
+}
