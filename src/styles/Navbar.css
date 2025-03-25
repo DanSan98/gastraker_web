@@ -118,3 +118,40 @@
     padding: 10px 0;
   }
 }
+.mobileMenuButton {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .mobileMenuButton {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .navLinks.show {
+    display: flex;
+  }
+
+  .navLink {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+  }
+}
