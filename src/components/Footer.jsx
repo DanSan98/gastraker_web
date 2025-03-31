@@ -13,11 +13,10 @@ const styles = {
     background: "#333",
     color: "white",
     textAlign: "center",
-    padding: "10px 0", // 🔹 Reduced padding to make it thinner
+    padding: "10px 0",
     fontSize: "14px",
-    position: "relative",
-    bottom: 0,
-    width: "100%",
+    // ✅ Removed position, bottom, and width
+    // Footer will naturally stick to bottom thanks to flex layout in App.js
   },
 };
 

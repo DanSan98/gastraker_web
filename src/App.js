@@ -10,17 +10,21 @@ import Contacto from "./pages/Contacto";
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/instalacion" element={<Instalacion />} />
-        <Route path="/contacto" element={<Contacto />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div className="app-wrapper"> {/* ✅ Full height flex container */}
+      <Router>
+        <Navbar />
+        <main className="content"> {/* ✅ Main content grows */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/productos" element={<Productos />} />
+            <Route path="/instalacion" element={<Instalacion />} />
+            <Route path="/contacto" element={<Contacto />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

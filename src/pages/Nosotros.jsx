@@ -1,13 +1,13 @@
 import React from "react";
-import "../styles/Nosotros.css"; // ✅ Import CSS from the styles folder
+import "../styles/Nosotros.css";
 
 const gastrakerIcon = `${process.env.PUBLIC_URL}/assets/gastraker.png`;
-const misionImage = `${process.env.PUBLIC_URL}/assets/vision.jpg`; // ✅ Added image
+const misionImage = `${process.env.PUBLIC_URL}/assets/vision.jpg`;
 
 const Nosotros = () => {
   return (
-    <div>
-      <div className="header-separator"></div> {/* ✅ Added separator */}
+    <div className="nosotros-wrapper" style={{ minHeight: "100vh" }}>
+      <div className="header-separator"></div>
 
       <div className="nosotros-container">
         <h1>Nosotros</h1>
@@ -15,24 +15,26 @@ const Nosotros = () => {
           Capital Intelectual Aplicado, S.A. de C.V. es una empresa Mexicana dedicada al desarrollo de productos innovadores.
         </p>
 
-        {/* ✅ Mission & Vision Section with Image */}
+        {/* ✅ Misión y Visión */}
         <div className="mission-vision-container">
-          
-
           <div className="card-container">
             <div className="card">
               <h2>📌 Misión</h2>
-              <p>Crear un equipo sólido con enfoque interdisciplinario para desarrollar tecnología innovadora con eficiencia y viabilidad de mercado.</p>
+              <p>
+                Crear un equipo sólido con enfoque interdisciplinario para desarrollar tecnología innovadora con eficiencia y viabilidad de mercado.
+              </p>
             </div>
 
             <div className="card">
               <h2>🚀 Visión</h2>
-              <p>Ser líderes en modernización del mercado de gas LP con tecnología en constante evolución y mejora.</p>
+              <p>
+                Ser líderes en modernización del mercado de gas LP con tecnología en constante evolución y mejora.
+              </p>
             </div>
           </div>
         </div>
 
-        {/* ✅ Grid layout with hover effects */}
+        {/* ✅ Características */}
         <div className="grid-container">
           <div className="grid-item">
             <span className="emoji">⏳</span>
@@ -47,7 +49,6 @@ const Nosotros = () => {
           </div>
 
           <div className="grid-item">
-            {/* ✅ Small GasTraker icon instead of emoji */}
             <img src={gastrakerIcon} alt="GasTraker" className="small-icon" />
             <h3>Acceso a Web/App</h3>
             <p>Consulta el nivel de gas en tu tanque desde cualquier lugar con nuestra app intuitiva.</p>

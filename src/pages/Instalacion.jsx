@@ -108,8 +108,8 @@ const Instalacion = () => {
   };
 
   return (
-    <div className="installation-page">
-      <div className="header-separator"></div> {/* ✅ Added separator */}
+    <div className="instalacion-wrapper" style={{ minHeight: "100vh" }}>
+      <div className="header-separator"></div>
 
       <div style={styles.container}>
         <h2 style={styles.title}>Instalación</h2>
@@ -146,7 +146,11 @@ const Instalacion = () => {
                     <li key={index}>{step}</li>
                   ))}
                 </ul>
-                <img src={instructions.product23.image} alt="Instalación Producto 2 y 3" style={styles.image} />
+                <img
+                  src={instructions.product23.image}
+                  alt="Instalación Producto 2 y 3"
+                  style={styles.image}
+                />
               </div>
             )}
           </div>
@@ -160,10 +164,9 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "50px 20px",
-    minHeight: "calc(100vh - 150px)", // ✅ Pushes content up but keeps footer at the bottom
+    flex: 1, // ✅ Matches flex layout
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
   },
   title: {
     fontSize: "32px",

@@ -36,7 +36,7 @@ const Productos = () => {
   };
 
   return (
-    <div>
+    <div className="productos-wrapper" style={{ minHeight: "100vh" }}>
       <div className="header-separator"></div>
 
       <div style={styles.container}>
@@ -97,6 +97,7 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "50px 20px",
+    flex: 1, // ✅ Ensure it can grow
   },
   title: {
     fontSize: "32px",
