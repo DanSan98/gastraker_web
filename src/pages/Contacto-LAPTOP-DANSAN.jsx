@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser"; // ✅ EmailJS SDK
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    nombre: "",
     email: "",
-    phone: "",
-    message: "",
+    telefono: "",
+    mensaje: "",
   });
 
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,14 +17,14 @@ const Contacto = () => {
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.name) newErrors.name = "Nombre es obligatorio.";
+    if (!formData.nombre) newErrors.nombre = "Nombre es obligatorio.";
     if (!formData.email) {
       newErrors.email = "Correo es obligatorio.";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Correo inválido.";
     }
-    if (!formData.phone) newErrors.phone = "Teléfono es obligatorio.";
-    if (!formData.message) newErrors.message = "Mensaje es obligatorio.";
+    if (!formData.telefono) newErrors.telefono = "Teléfono es obligatorio.";
+    if (!formData.mensaje) newErrors.mensaje = "Mensaje es obligatorio.";
     return newErrors;
   };
 
@@ -33,34 +32,24 @@ const Contacto = () => {
     e.preventDefault();
     const newErrors = validateForm();
     if (Object.keys(newErrors).length === 0) {
-      setLoading(true);
-
       emailjs
         .send(
-          "service_3t8l9ho",
-          "template_of6n6qd",
+          "service_3t8l9ho", // ✅ Your Service ID
+          "template_of6n6qd", // ✅ Your Template ID
           formData,
-          "WexFSCCvaD3xgYtuI"
+          "WexFSCCvaD3xgYtuI" // ✅ Your Public Key
         )
         .then(
-          () => {
+          (result) => {
             alert("✅ Formulario enviado correctamente.");
-            setFormData({
-              name: "",
-              email: "",
-              phone: "",
-              message: "",
-            });
+            setFormData({ nombre: "", email: "", telefono: "", mensaje: "" });
             setErrors({});
           },
           (error) => {
             console.error("❌ Error al enviar:", error);
-            alert("❌ Ocurrió un error al enviar el formulario. Intenta más tarde.");
+            alert("❌ Error al enviar el formulario.");
           }
-        )
-        .finally(() => {
-          setLoading(false);
-        });
+        );
     } else {
       setErrors(newErrors);
     }
@@ -72,16 +61,17 @@ const Contacto = () => {
       <p style={styles.subtitle}>
         Llena el siguiente formulario y nos pondremos en contacto contigo.
       </p>
+
       <form onSubmit={handleSubmit} style={styles.form}>
         <input
           type="text"
-          name="name"
+          name="nombre"
           placeholder="Nombre"
-          value={formData.name}
+          value={formData.nombre}
           onChange={handleChange}
           style={styles.input}
         />
-        {errors.name && <span style={styles.error}>{errors.name}</span>}
+        {errors.nombre && <span style={styles.error}>{errors.nombre}</span>}
 
         <input
           type="email"
@@ -95,26 +85,24 @@ const Contacto = () => {
 
         <input
           type="tel"
-          name="phone"
+          name="telefono"
           placeholder="Teléfono"
-          value={formData.phone}
+          value={formData.telefono}
           onChange={handleChange}
           style={styles.input}
         />
-        {errors.phone && <span style={styles.error}>{errors.phone}</span>}
+        {errors.telefono && <span style={styles.error}>{errors.telefono}</span>}
 
         <textarea
-          name="message"
+          name="mensaje"
           placeholder="Mensaje"
-          value={formData.message}
+          value={formData.mensaje}
           onChange={handleChange}
           style={styles.textarea}
         />
-        {errors.message && <span style={styles.error}>{errors.message}</span>}
+        {errors.mensaje && <span style={styles.error}>{errors.mensaje}</span>}
 
-        <button type="submit" style={styles.button} disabled={loading}>
-          {loading ? "Enviando..." : "Enviar"}
-        </button>
+        <button type="submit" style={styles.button}>Enviar</button>
       </form>
 
       <h3 style={styles.mapTitle}>Nuestra Ubicación 📍</h3>
