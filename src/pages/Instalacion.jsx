@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const instructions = {
   product1: {
-    title: "Instalación y Configuración del Producto 1",
+    title: "Instalación y Configuración del Modelo Wi-Fi",
     image: "/assets/product1.jpg",
     steps: [
       {
@@ -152,7 +152,7 @@ const Instalacion = () => {
 
         <div style={styles.buttons}>
           <button onClick={() => toggleInstructions("product1")} style={styles.button}>
-            Producto 1 (Wi-Fi)
+            Modelo Wi-Fi
           </button>
           <button onClick={() => toggleInstructions("product2")} style={styles.button}>
             Modelo LTS
