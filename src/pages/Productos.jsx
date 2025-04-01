@@ -8,8 +8,8 @@ const images = [
 
 const descriptions = [
   "Wi-Fi (Consulta nivel desde web/app)",
-  "LTS (Monitoreo en tiempo real)",
-  "Carburación (Optimización de consumo)",
+  "LTS (Consulta nivel desde equipo físico)",
+  "Carburación (Consulta nivel en el tablero de tu carro)",
 ];
 
 const Productos = () => {
