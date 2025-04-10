@@ -14,6 +14,7 @@ const descriptions = [
 
 const Productos = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [fade, setFade] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -24,15 +25,23 @@ const Productos = () => {
   }, [currentIndex]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    setFade(false);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+      setFade(true);
+    }, 200);
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    setFade(false);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+      setFade(true);
+    }, 200);
   };
 
   return (
@@ -40,7 +49,7 @@ const Productos = () => {
       <div className="header-separator"></div>
 
       <div style={styles.container}>
-        <h2 style={styles.title}>PRODUCTOS</h2>
+        <h2 style={styles.title}>Productos</h2>
         <p style={styles.subtitle}>
           Contamos con 3 equipos diferentes para adaptarnos a tus necesidades
         </p>
@@ -52,7 +61,11 @@ const Productos = () => {
             <img
               src={images[currentIndex]}
               alt="Producto"
-              style={styles.image}
+              style={{
+                ...styles.image,
+                opacity: fade ? 1 : 0,
+                transition: "opacity 0.4s ease-in-out",
+              }}
               onClick={() => setIsModalOpen(true)}
             />
             <div style={styles.caption}>{descriptions[currentIndex]}</div>
@@ -69,12 +82,17 @@ const Productos = () => {
                 ...styles.dot,
                 backgroundColor: currentIndex === index ? "black" : "gray",
               }}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setFade(false);
+                setTimeout(() => {
+                  setCurrentIndex(index);
+                  setFade(true);
+                }, 200);
+              }}
             />
           ))}
         </div>
 
-        {/* ✅ Fullscreen Modal */}
         {isModalOpen && (
           <div
             style={styles.modalOverlay}
@@ -97,7 +115,7 @@ const styles = {
   container: {
     textAlign: "center",
     padding: "50px 20px",
-    flex: 1, // ✅ Ensure it can grow
+    flex: 1,
   },
   title: {
     fontSize: "32px",
@@ -116,19 +134,21 @@ const styles = {
   imageContainer: {
     position: "relative",
     maxWidth: "400px",
+    minHeight: "240px",
   },
   image: {
     width: "100%",
     height: "auto",
     borderRadius: "10px",
     cursor: "pointer",
+    display: "block",
   },
   caption: {
     backgroundColor: "rgba(0, 0, 0, 0.7)",
     color: "white",
     padding: "6px 12px",
     position: "absolute",
-    bottom: "225px",
+    bottom: "10px",
     left: "50%",
     transform: "translateX(-50%)",
     borderRadius: "5px",

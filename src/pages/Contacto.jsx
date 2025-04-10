@@ -69,7 +69,7 @@ const Contacto = () => {
   return (
     <div className="contacto-wrapper"> {/* ✅ Page layout wrapper */}
       <div style={styles.container}>
-        <h2 style={styles.title}>Contáctanos</h2>
+        <h2 style={styles.title}>Contacto</h2>
         <p style={styles.subtitle}>
           Llena el siguiente formulario y nos pondremos en contacto contigo.
         </p>

@@ -35,6 +35,9 @@ const Navbar = () => {
           <Link to="/instalacion" className="navLink" onClick={toggleMobileMenu}>
             Instalación
           </Link>
+          <Link to="/soporte" className="navLink" onClick={toggleMobileMenu}>
+            Soporte
+          </Link> {/* ✅ NUEVO LINK */}
           <Link to="/contacto" className="navLink" onClick={toggleMobileMenu}>
             Contacto
           </Link>

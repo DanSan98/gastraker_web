@@ -153,3 +153,9 @@ img {
   flex-direction: column;
   min-height: 100vh; /* ✅ Forces content to stretch full height even at 67% zoom */
 }
+.soporte-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
