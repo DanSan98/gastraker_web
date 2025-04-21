@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const heroImage = `${process.env.PUBLIC_URL}/assets/product1.jpg`;
+const agradecimientoImage = `${process.env.PUBLIC_URL}/assets/gt_placa.png`;
 
 const Home = () => {
   return (
@@ -22,7 +23,15 @@ const Home = () => {
           </Link>
         </div>
 
-        <img src={heroImage} alt="Producto" style={styles.heroImage} />
+        <div style={styles.fullWidthImageWrapper}>
+          <img src={heroImage} alt="Producto" style={styles.fullWidthImage} />
+
+          <img
+            src={agradecimientoImage}
+            alt="Gracias por elegir Gas Traker"
+            style={styles.placaOverlay}
+          />
+        </div>
       </div>
     </div>
   );
@@ -32,16 +41,31 @@ const styles = {
   container: {
     textAlign: "center",
     paddingTop: "100px",
-    paddingBottom: "40px", // ✅ Add bottom spacing to avoid tightness with footer
+    paddingBottom: "40px",
   },
   hero: {
     background: "white",
     padding: "50px",
   },
-  heroImage: {
+  fullWidthImageWrapper: {
+    position: "relative",
+    width: "100%",
+    marginTop: "30px",
+  },
+  fullWidthImage: {
     width: "100%",
     height: "auto",
-    marginTop: "20px",
+    display: "block",
+  },
+  placaOverlay: {
+    position: "absolute",
+    bottom: "-20px",
+    right: "25px",
+    width: "250px", // ✅ más grande
+    borderRadius: "12px",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+    backgroundColor: "white",
+    padding: "4px",
   },
   button: {
     display: "inline-block",

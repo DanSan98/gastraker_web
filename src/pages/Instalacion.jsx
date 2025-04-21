@@ -151,81 +151,107 @@ const Instalacion = () => {
         <p style={styles.subtitle}>Selecciona el producto que adquiriste:</p>
 
         <div style={styles.buttons}>
-          <button onClick={() => toggleInstructions("product1")} style={styles.button}>
-            Modelo Wi-Fi
-          </button>
-          <button onClick={() => toggleInstructions("product2")} style={styles.button}>
-            Modelo LTS
-          </button>
-          <button onClick={() => toggleInstructions("product3")} style={styles.button}>
-            Modelo Carburación
-          </button>
-        </div>
+        <button onClick={() => toggleInstructions("product1")} style={styles.fancyButton}>
+  Modelo Wi-Fi
+</button>
+<button onClick={() => toggleInstructions("product2")} style={styles.fancyButton}>
+  Modelo LTS
+</button>
+<button onClick={() => toggleInstructions("product3")} style={styles.fancyButton}>
+  Modelo Carburación
+</button>
 
-        {selectedProduct && (
-          <div style={styles.instructions}>
-            <div style={styles.centeredImageWrapper}>
-              <img
-                src={instructions[selectedProduct].image}
-                alt={`Imagen de ${instructions[selectedProduct].title}`}
-                style={{ ...styles.image, cursor: "pointer" }}
-                onClick={() => openModal(instructions[selectedProduct].image)}
-                onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-                onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-              />
-            </div>
+</div>
 
-            <h3>{instructions[selectedProduct].title}</h3>
-
-            {selectedProduct === "product1"
-              ? instructions.product1.steps.map((step, index) => (
-                  <div key={index} style={styles.step}>
-                    <h4>{step.title}</h4>
-                    <ul>
-                      {step.details.map((detail, i) => (
-                        <li key={i}>{renderWithLinks(detail)}</li>
-                      ))}
-                    </ul>
-                    {step.images && (
-                      <div style={styles.centeredImageWrapper}>
-                        {step.images.map((img, i) => (
-                          <img
-                            key={i}
-                            src={img.src}
-                            alt={img.alt}
-                            style={{ ...styles.image, cursor: "pointer" }}
-                            onClick={() => openModal(img.src)}
-                            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-                            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                          />
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))
-              : (
-                <div style={styles.step}>
-                  <ul>
-                    {instructions[selectedProduct].steps.map((step, index) => (
-                      <li key={index}>{step}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-          </div>
-        )}
-
-        {modalImage && (
-          <div style={styles.modalOverlay} onClick={closeModal}>
-            <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-              <span style={styles.closeButton} onClick={closeModal}>×</span>
-              <img src={modalImage} alt="Zoom" style={styles.modalImage} />
-            </div>
-          </div>
-        )}
-      </div>
+{selectedProduct && (
+  <div style={styles.instructions}>
+    <div style={styles.centeredImageWrapper}>
+      <img
+        src={instructions[selectedProduct].image}
+        alt={`Imagen de ${instructions[selectedProduct].title}`}
+        style={{ ...styles.image, cursor: "pointer" }}
+        onClick={() => openModal(instructions[selectedProduct].image)}
+        onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+        onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      />
     </div>
-  );
+
+    <h3>{instructions[selectedProduct].title}</h3>
+
+    {selectedProduct === "product1" ? (
+      <>
+        {instructions.product1.steps.map((step, index) => (
+          <div key={index} style={styles.step}>
+            <h4>{step.title}</h4>
+            <ul>
+              {step.details.map((detail, i) => (
+                <li key={i}>{renderWithLinks(detail)}</li>
+              ))}
+            </ul>
+            {step.images && (
+              <div style={styles.centeredImageWrapper}>
+                {step.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img.src}
+                    alt={img.alt}
+                    style={{ ...styles.image, cursor: "pointer" }}
+                    onClick={() => openModal(img.src)}
+                    onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+                    onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+
+        {/* ✅ Botón para descargar instructivo PDF */}
+        <div style={{ textAlign: "center", marginTop: "30px" }}>
+          <a
+            href="/assets/Instructivo_final_gt.pdf"
+            download
+            style={{
+              display: "inline-block",
+              padding: "15px 40px",
+              fontSize: "16px",
+              fontWeight: "bold",
+              color: "white",
+              textDecoration: "none",
+              borderRadius: "50px",
+              background: "linear-gradient(90deg, #001A4D, #0050B3)",
+              border: "none",
+              boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            Descargar Instructivo PDF
+          </a>
+        </div>
+      </>
+    ) : (
+      <div style={styles.step}>
+        <ul>
+          {instructions[selectedProduct].steps.map((step, index) => (
+            <li key={index}>{step}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+)}
+
+{modalImage && (
+  <div style={styles.modalOverlay} onClick={closeModal}>
+    <div style={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+      <span style={styles.closeButton} onClick={closeModal}>×</span>
+      <img src={modalImage} alt="Zoom" style={styles.modalImage} />
+    </div>
+  </div>
+)}
+</div>
+</div>
+);
+
 };
 
 const styles = {
@@ -315,6 +341,20 @@ const styles = {
     cursor: "pointer",
     color: "#555",
   },
+  fancyButton: {
+    padding: "15px 40px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "white",
+    textDecoration: "none",
+    borderRadius: "50px",
+    background: "linear-gradient(90deg, #001A4D, #0050B3)",
+    border: "none",
+    cursor: "pointer",
+    transition: "0.3s ease",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+  },
+  
 };
 
 export default Instalacion;
