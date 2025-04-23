@@ -67,7 +67,7 @@ const Contacto = () => {
   };
 
   return (
-    <div className="contacto-wrapper"> {/* ✅ Page layout wrapper */}
+    <div className="contacto-wrapper">
       <div style={styles.container}>
         <h2 style={styles.title}>Contacto</h2>
         <p style={styles.subtitle}>
@@ -132,6 +132,20 @@ const Contacto = () => {
           ></iframe>
         </div>
       </div>
+
+      {/* ✅ Botón flotante de WhatsApp */}
+      <a
+        href="https://wa.me/5218441234567"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.whatsapp}
+      >
+        <img
+          src="/assets/whatsapp-icon.png"
+          alt="WhatsApp"
+          style={styles.whatsappImage}
+        />
+      </a>
     </div>
   );
 };
@@ -200,6 +214,18 @@ const styles = {
     borderRadius: "10px",
     overflow: "hidden",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+  },
+  whatsapp: {
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    zIndex: 1000,
+    transition: "transform 0.3s ease-in-out",
+  },
+  whatsappImage: {
+    width: "60px",
+    height: "60px",
+    transition: "transform 0.3s ease-in-out",
   },
 };
 

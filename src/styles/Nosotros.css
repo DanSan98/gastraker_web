@@ -14,7 +14,9 @@
   padding: 50px 30px;
   position: relative;
   background: url("/assets/mv2.jpg") center center/cover no-repeat;
-  width: 100vw;
+
+  /* ✅ Cambios aquí */
+  width: 100%;
   max-width: 100%;
   height: 300px;
   overflow: hidden;

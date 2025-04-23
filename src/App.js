@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos";
-import Instalacion from "./pages/Instalacion";
 import Contacto from "./pages/Contacto";
 import Soporte from "./pages/Soporte"; // ✅ NEW
 
@@ -19,7 +18,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/productos" element={<Productos />} />
-            <Route path="/instalacion" element={<Instalacion />} />
             <Route path="/soporte" element={<Soporte />} /> {/* ✅ NEW */}
             <Route path="/contacto" element={<Contacto />} />
           </Routes>
