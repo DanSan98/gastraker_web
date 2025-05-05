@@ -135,7 +135,7 @@ const Contacto = () => {
 
       {/* ✅ Botón flotante de WhatsApp */}
       <a
-        href="https://wa.me/5218441234567"
+        href="https://wa.me/528183624064"
         target="_blank"
         rel="noopener noreferrer"
         style={styles.whatsapp}
