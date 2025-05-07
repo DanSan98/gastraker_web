@@ -24,12 +24,6 @@ const Home = () => {
 
         <div style={styles.fullWidthImageWrapper}>
           <img src={heroImage} alt="Producto" style={styles.fullWidthImage} />
-
-          <img
-            src={agradecimientoImage}
-            alt="Gracias por elegir Gas Traker"
-            style={styles.placaOverlay}
-          />
         </div>
       </div>
     </div>

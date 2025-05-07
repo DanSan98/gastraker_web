@@ -222,6 +222,28 @@ const Productos = () => {
             <div style={styles.description}>
               <h3>Descripción</h3>
               <p>{info[selectedIndex]}</p>
+              <div style={{ textAlign: "center", margin: "20px 0" }}>
+  <a
+    href={`https://checkout.stripe.com/pay/fake-product-${selectedIndex + 1}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      display: "inline-block",
+      padding: "15px 40px",
+      fontSize: "16px",
+      fontWeight: "bold",
+      color: "white",
+      textDecoration: "none",
+      borderRadius: "50px",
+      background: "linear-gradient(90deg, #001A4D, #0050B3)",
+      border: "none",
+      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+    }}
+  >
+    Comprar ahora
+  </a>
+</div>
+
             </div>
 
             <div style={styles.instructions}>
