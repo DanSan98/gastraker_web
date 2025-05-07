@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const heroImage = `${process.env.PUBLIC_URL}/assets/product1.jpg`;
-const agradecimientoImage = `${process.env.PUBLIC_URL}/assets/gt_placa.png`;
 
 const Home = () => {
   return (
@@ -56,16 +55,6 @@ const styles = {
     width: "100%",
     height: "auto",
     display: "block",
-  },
-  placaOverlay: {
-    position: "absolute",
-    bottom: "-20px",
-    right: "25px",
-    width: "250px", // ✅ más grande
-    borderRadius: "12px",
-    boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-    backgroundColor: "white",
-    padding: "4px",
   },
   button: {
     display: "inline-block",
