@@ -135,11 +135,11 @@ const Contacto = () => {
 
       {/* ✅ Botón flotante de WhatsApp */}
       <a
-        href="https://wa.me/528183624064"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.whatsapp}
-      >
+  href="https://wa.me/5218136032232"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={styles.whatsapp}
+>
         <img
           src="/assets/whatsapp-icon.png"
           alt="WhatsApp"
