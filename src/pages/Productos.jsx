@@ -19,18 +19,18 @@ const descriptions = [
     "Wi-Fi (Consulta nivel desde web/app)",
     "LTS (Consulta nivel desde equipo físico)",
     "Carburación (Consulta nivel en el tablero de tu carro)",
-    "LTS-U (Consulta nivel desde equipo físico LTS y % inalámbrico con celda solar)",
+    "LTS-U (Consulta nivel desde equipo físico LTS y %, inalámbrico con celda solar)",
     "WS (Consulta nivel desde equipo físico LTS)",
-    "UHF (Consulta nivel desde equipo físico LTS inalámbrico con celda solar)",
+    "UHF (Consulta nivel desde equipo físico LTS, nalámbrico con celda solar)",
 ];
 
 const info = [
-    "Nuestro modelo más reciente permite consultar el nivel de gas LP desde tu dispositivo móvil a través de nuestra app web, facilitando la supervisión remota del tanque.",
-    "Este equipo cuenta con una pantalla digital que muestra el nivel de gas dentro del hogar. No requiere conexión a internet y la lectura se realiza físicamente desde el dispositivo.",
+    "Nuestro modelo más reciente permite consultar el nivel de gas LP desde tu dispositivo móvil a través de nuestra web-app, facilitando la supervisión remota del tanque.",
+    "Este equipo cuenta con una pantalla digital que muestra el nivel en LTS Y %. La lectura se realiza físicamente desde el dispositivo.",
     "Diseñado para automóviles que utilizan gas LP, este modelo muestra el nivel directamente en una pantalla digital instalada en el tablero del vehículo.",
-    "Equipo híbrido que muestra el nivel en pantalla física y además envía el porcentaje de forma inalámbrica con celda solar.",
-    "Versión básica con pantalla LTS para ver el nivel localmente sin conectividad adicional.",
-    "Equipo LTS inalámbrico con celda solar, ideal para zonas sin acceso a corriente eléctrica.",
+    "Equipo inalámbrico que muestra el nivel en pantalla física (LTS Y %) envía la lectura de forma inalámbrica con celda solar.",
+    "Versión básica con pantalla (LTS) para ver el nivel localmente sin conectividad adicional.",
+    "Equipo inalámbrico (LTS) con celda solar, ideal para zonas sin acceso a corriente eléctrica.",
 ];
 
 const instructions = {

@@ -102,6 +102,19 @@ const Soporte = () => {
           <a href="/contacto" style={styles.contactLink}>Contacto</a>.
         </p>
       </div>
+      <a
+  href="https://wa.me/5218136032232"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={styles.whatsapp}
+>
+  <img
+    src="/assets/whatsapp-icon.png"
+    alt="WhatsApp"
+    style={styles.whatsappImage}
+  />
+</a>
+
     </div>
   );
 };
@@ -173,6 +186,19 @@ const styles = {
     fontWeight: "bold",
     textDecoration: "none",
   },
+    whatsapp: {
+    position: "fixed",
+    bottom: "20px",
+    right: "20px",
+    zIndex: 1000,
+    transition: "transform 0.3s ease-in-out",
+  },
+  whatsappImage: {
+    width: "60px",
+    height: "60px",
+    transition: "transform 0.3s ease-in-out",
+  },
+
 };
 
 export default Soporte;
