@@ -31,6 +31,23 @@ const faqs = [
   {
     question: "Analizar la app para pantalla de inicio",
     answer: "Seleccionar 'Analizar App' para poder tenerla en la pantalla de inicio o como app en tu celular. No tiene ningún riesgo."
+  },
+  {
+    question: "¿Qué pasa si no me aparece la ventana de configuración después de dar click en Conectar o Desconectado?",
+    answer: "Si no abre la ventana quiere decir que el celular no está conectado al wifi de GasTraker. Entra a tu cuenta y no cierres sesión; ve a ajustes del celular y conéctate a la red de GasTraker (si no aparece, revisar que esté bien conectado el equipo o quiere decir que ya está configurado). Contraseña de red: 'GasTraker'."
+  },
+  {
+    question: "¿Cómo le hago para tener la web/app en mi pantalla de inicio?",
+    answer: (
+      <>
+        <p><strong>iOS:</strong> Ir a la web/app <a href="https://gastraker.com" target="_blank" rel="noopener noreferrer">gastraker.com</a> y dar click en el botón de compartir que se encuentra abajo (abajo de la barra de búsqueda) en el centro, deslizar hacia abajo y seleccionar <em>Agregar a pantalla de inicio</em>. Finalizar con <em>Agregar</em>. Entrar de nuevo a tu cuenta y listo.</p>
+        <p><strong>Android:</strong> Abre la web/app <a href="https://gastraker.com" target="_blank" rel="noopener noreferrer">gastraker.com</a> en el navegador Chrome. Luego, toca el ícono de los tres puntos (menú) en la esquina superior derecha y selecciona <em>“Agregar a la pantalla principal”</em>. Confirma con <em>Agregar</em> y se creará un acceso directo en tu pantalla de inicio.</p>
+      </>
+    )
+  },
+  {
+    question: "¿Cómo le hago para activar las notificaciones?",
+    answer: "Ir a ajustes en el menú superior izquierdo y seleccionar la casilla de notificaciones y permitir. Te notificará al momento que llegue a tu nivel de reserva."
   }
 ];
 
