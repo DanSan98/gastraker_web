@@ -48,6 +48,10 @@ const faqs = [
   {
     question: "¿Cómo le hago para activar las notificaciones?",
     answer: "Ir a ajustes en el menú superior izquierdo y seleccionar la casilla de notificaciones y permitir. Te notificará al momento que llegue a tu nivel de reserva."
+  },
+  {
+    question: "¿Cuánto cuesta la suscripción?",
+    answer: "La suscripción tiene un costo de $29 pesos mensuales. Al instalar tu equipo por primera vez, recibirás una prueba gratuita de 2 meses. Para activar la prueba deberás registrar una tarjeta, al finalizar este periodo, se realizará el primer cobro automático. ¡Y hay más! Si eliges el pago anual, obtendrás 2 meses adicionales gratis de suscripción."
   }
 ];
 
@@ -59,9 +63,10 @@ const Soporte = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  const filteredFaqs = faqs.filter(faq =>
+  const filteredFaqs = faqs.filter((faq) =>
     faq.question.toLowerCase().includes(search.toLowerCase()) ||
-    (typeof faq.answer === "string" && faq.answer.toLowerCase().includes(search.toLowerCase()))
+    (typeof faq.answer === "string" &&
+      faq.answer.toLowerCase().includes(search.toLowerCase()))
   );
 
   return (
@@ -92,7 +97,7 @@ const Soporte = () => {
                 <span
                   style={{
                     ...styles.icon,
-                    transform: expandedIndex === index ? "rotate(180deg)" : "rotate(0deg)"
+                    transform: expandedIndex === index ? "rotate(180deg)" : "rotate(0deg)",
                   }}
                 >
                   ▼
@@ -102,36 +107,53 @@ const Soporte = () => {
                 style={{
                   ...styles.answerContainer,
                   maxHeight: expandedIndex === index ? "500px" : "0px",
-                  paddingTop: expandedIndex === index ? "10px" : "0px"
+                  paddingTop: expandedIndex === index ? "10px" : "0px",
                 }}
               >
-                <div style={styles.answer}>
-                  {faq.answer}
-                </div>
+                <div style={styles.answer}>{faq.answer}</div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* ✅ Mensaje final con link */}
+        {/* === Video de instalación (YouTube Short) === */}
+        <section style={styles.videoSection}>
+          <h3 style={styles.videoTitle}>Video de instalación – Modelo Wi-Fi</h3>
+          <p style={styles.videoSubtitle}>Paso a paso.</p>
+
+          {/* Short: usa /embed/ID para mostrar el preview */}
+          <div style={styles.videoContainer}>
+            <iframe
+              style={styles.videoIframe}
+              src="https://www.youtube.com/embed/AIU24-JWpCI"
+              title="Instalación GasTraker Wi-Fi"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </section>
+
         <p style={styles.finalNote}>
           ¿Necesitas más información u orientación? Por favor mándanos un mensaje en la sección de{" "}
           <a href="/contacto" style={styles.contactLink}>Contacto</a>.
         </p>
       </div>
-      <a
-  href="https://wa.me/5218136032232"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={styles.whatsapp}
->
-  <img
-    src="/assets/whatsapp-icon.png"
-    alt="WhatsApp"
-    style={styles.whatsappImage}
-  />
-</a>
 
+      {/* Botón flotante de WhatsApp */}
+      <a
+        href="https://wa.me/5218136032232"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={styles.whatsapp}
+        aria-label="Abrir chat de WhatsApp"
+      >
+        <img
+          src="/assets/whatsapp-icon.png"
+          alt="WhatsApp"
+          style={styles.whatsappImage}
+        />
+      </a>
     </div>
   );
 };
@@ -143,15 +165,8 @@ const styles = {
     maxWidth: "900px",
     margin: "auto",
   },
-  title: {
-    fontSize: "32px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-  },
-  subtitle: {
-    fontSize: "18px",
-    marginBottom: "30px",
-  },
+  title: { fontSize: "32px", fontWeight: "bold", marginBottom: "10px" },
+  subtitle: { fontSize: "18px", marginBottom: "30px" },
   searchInput: {
     width: "100%",
     maxWidth: "500px",
@@ -161,9 +176,7 @@ const styles = {
     border: "1px solid #ccc",
     marginBottom: "30px",
   },
-  faqContainer: {
-    textAlign: "left",
-  },
+  faqContainer: { textAlign: "left" },
   faqBox: {
     background: "#f9f9f9",
     padding: "15px 20px",
@@ -181,41 +194,41 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
   },
-  icon: {
-    fontSize: "18px",
-    transition: "transform 0.3s ease",
-  },
+  icon: { fontSize: "18px", transition: "transform 0.3s ease" },
   answerContainer: {
     overflow: "hidden",
     transition: "max-height 0.4s ease, padding-top 0.3s ease",
   },
-  answer: {
-    fontSize: "16px",
-    lineHeight: "1.5",
+  answer: { fontSize: "16px", lineHeight: "1.5" },
+
+  /* ===== Video styles (9:16 para Short) ===== */
+  videoSection: { marginTop: "40px", textAlign: "center" },
+  videoTitle: { fontSize: "22px", fontWeight: 700, marginBottom: "6px" },
+  videoSubtitle: { fontSize: "14px", color: "#666", marginBottom: "16px" },
+  videoContainer: {
+    position: "relative",
+    width: "100%",
+    maxWidth: "420px",
+    margin: "0 auto 10px",
+    borderRadius: "12px",
+    overflow: "hidden",
+    boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
+    background: "#000",
+    paddingTop: "56.25%", // 9:16 (Short). Para 16:9 usa "56.25%".
   },
-  finalNote: {
-    marginTop: "40px",
-    fontSize: "16px",
-    color: "#333",
-  },
-  contactLink: {
-    color: "#0056b3",
-    fontWeight: "bold",
-    textDecoration: "none",
-  },
-    whatsapp: {
+  videoIframe: { position: "absolute", inset: 0, width: "100%", height: "100%", border: 0 },
+
+  finalNote: { marginTop: "28px", fontSize: "16px", color: "#333" },
+  contactLink: { color: "#0056b3", fontWeight: "bold", textDecoration: "none" },
+
+  whatsapp: {
     position: "fixed",
     bottom: "20px",
     right: "20px",
     zIndex: 1000,
     transition: "transform 0.3s ease-in-out",
   },
-  whatsappImage: {
-    width: "60px",
-    height: "60px",
-    transition: "transform 0.3s ease-in-out",
-  },
-
+  whatsappImage: { width: "60px", height: "60px", transition: "transform 0.3s ease-in-out" },
 };
 
 export default Soporte;
