@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/Nosotros.css";
 
 const gastrakerIcon = `${process.env.PUBLIC_URL}/assets/gastraker.png`;
-const misionImage = `${process.env.PUBLIC_URL}/assets/vision.jpg`;
 
 const Nosotros = () => {
   return (

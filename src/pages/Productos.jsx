@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 //PENDIENTE DE CAMBIAR A PRODUCCION//
 
@@ -384,26 +385,25 @@ const Productos = () => {
                             <h3>Descripción</h3>
                             <p>{info[selectedIndex]}</p>
                             <div style={{ textAlign: "center", margin: "20px 0" }}>
-                                <a
-                                    onClick={ showModalHandler }
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{
-                                        display: "inline-block",
-                                        cursor:"pointer",
-                                        padding: "15px 40px",
-                                        fontSize: "16px",
-                                        fontWeight: "bold",
-                                        color: "white",
-                                        textDecoration: "none",
-                                        borderRadius: "50px",
-                                        background: "linear-gradient(90deg, #001A4D, #0050B3)",
-                                        border: "none",
-                                        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
-                                    }}
+                                <button
+                                type="button"
+                                onClick={showModalHandler}
+                                style={{
+                                    display: "inline-block",
+                                    cursor: "pointer",
+                                    padding: "15px 40px",
+                                    fontSize: "16px",
+                                    fontWeight: "bold",
+                                    color: "white",
+                                    textDecoration: "none",
+                                    borderRadius: "50px",
+                                    background: "linear-gradient(90deg, #001A4D, #0050B3)",
+                                    border: "none",
+                                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.2)",
+                                }}
                                 >
-                                    Comprar ahora
-                                </a>
+                                Comprar ahora
+                                </button>
                             </div>
                             {selectedIndex !== null && valid_devices[selectedIndex] && (
     <div style={{ textAlign: "center", marginTop: "10px" }}>

@@ -1,0 +1,147 @@
+/* ===== Instalación | estilos base ===== */
+.instalacion-container {
+  padding: 24px 16px 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  /* ⬇️ CONTROLES RÁPIDOS */
+  --sensor-img-max: 400px;     /* <<< AQUI CAMBIAS EL TAMAÑO DE LA FOTO */
+  --sensor-card-height: 240px; /* altura del recuadro (card) */
+}
+
+.instalacion-hero { text-align: center; margin-bottom: 24px; }
+.instalacion-hero h1 { font-size: 2rem; margin: 0 0 8px; }
+.instalacion-hero p { color: #516173; margin: 0; }
+
+.instalacion-section {
+  margin-top: 28px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.instalacion-section h2 { margin-top: 0; }
+
+.step-list { margin: 8px 0 0 18px; }
+.step-list li { margin: 8px 0; line-height: 1.5; }
+.note { color: #b12a2a; }
+
+/* ===== Galería (genérica) ===== */
+.media-row {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.media-row figure {
+  margin: 0;
+  background: #f7f9fc;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.media-row img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+.media-row figcaption {
+  font-size: 0.9rem;
+  color: #5b6b7c;
+  margin-top: 6px;
+}
+
+/* ===== PRIMER BLOQUE (las 3 fotos de “Instalación”) CON CARD FIJO ===== */
+.instalacion-section:first-of-type {
+  /* 🔧 Ajusta SOLO estos 3 valores para tamaño */
+  --card-h: 260px;     /* altura total del card (fondo azul) */
+  --img-box-h: 240px;  /* altura de la caja donde va la foto */
+  --img-max-w: 90%;    /* ancho máximo relativo de la imagen */
+}
+
+.instalacion-section:first-of-type .media-row {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.instalacion-section:first-of-type .media-row figure {
+  /* Card fijo: NO cambia al crecer la imagen */
+  height: var(--card-h);
+  margin: 0;
+  background: #f7f9fc;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+
+  /* Grid interno: fila 1 = imagen (caja fija), fila 2 = caption */
+  display: grid;
+  grid-template-rows: var(--img-box-h) auto;
+  align-items: center;
+  justify-items: center;
+}
+
+/* Imagen centrada y contenida en su caja (no empuja el caption) */
+.instalacion-section:first-of-type .media-row img {
+  max-height: calc(var(--img-box-h) - 8px);
+  max-width: var(--img-max-w);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  justify-self: center;
+  align-self: center;
+  border-radius: 14px;
+}
+
+/* Caption pegado y centrado (2ª fila del grid) */
+.instalacion-section:first-of-type .media-row figcaption {
+  margin-top: 6px;
+  text-align: center;
+  line-height: 1.25;
+  color: #5b6b7c;
+  font-size: 0.95rem;
+}
+
+/* Responsive: reduce un poco la caja y la imagen en móviles */
+@media (max-width: 600px) {
+  .instalacion-section:first-of-type {
+    --card-h: 230px;
+    --img-box-h: 150px;
+  }
+}
+
+/* ===== QR a la derecha del texto en el paso 1 ===== */
+.qr-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.qr-row .qr-img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+/* Botones / callouts */
+.callout {
+  background: #f0f7ff;
+  border: 1px solid #d6e7ff;
+  padding: 12px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.pdf-actions { margin-bottom: 10px; }
+.btn { display: inline-block; padding: 10px 14px; border-radius: 10px; text-decoration: none; border: 1px solid transparent; cursor: pointer; }
+.btn.primary { background: #0a5bd3; color: #fff; }
+.btn.whatsapp { background: #25d366; color: #0c2a12; font-weight: 600; }
+
+.video-wrapper { position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000; }
+.video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+.contacto-mini { text-align: center; }
+.help-text { color: #5b6b7c; }

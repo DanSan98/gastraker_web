@@ -26,19 +26,23 @@ const Navbar = () => {
         </button>
 
         <nav className={`navLinks ${isMobileMenuOpen ? "show" : ""}`}>
-          <Link to="/nosotros" className="navLink" onClick={toggleMobileMenu}>
-            Nosotros
-          </Link>
-          <Link to="/productos" className="navLink" onClick={toggleMobileMenu}>
-            Productos
-          </Link>
-          <Link to="/soporte" className="navLink" onClick={toggleMobileMenu}>
-            Soporte
-          </Link> {/* ✅ NUEVO LINK */}
-          <Link to="/contacto" className="navLink" onClick={toggleMobileMenu}>
-            Contacto
-          </Link>
-        </nav>
+        <Link to="/nosotros" className="navLink" onClick={toggleMobileMenu}>
+          Nosotros
+        </Link>
+        <Link to="/productos" className="navLink" onClick={toggleMobileMenu}>
+          Productos
+        </Link>
+        {/* 👇 nuevo link */}
+        <Link to="/instalacion-wifi" className="navLink" onClick={toggleMobileMenu}>
+          Instalación
+        </Link>
+        <Link to="/soporte" className="navLink" onClick={toggleMobileMenu}>
+          Soporte
+        </Link>
+        <Link to="/contacto" className="navLink" onClick={toggleMobileMenu}>
+          Contacto
+        </Link>
+      </nav>
 
         <div className="logoContainer">
           <img src={logo} alt="GasTraker" className="logo" />
