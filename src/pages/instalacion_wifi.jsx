@@ -95,7 +95,7 @@ export default function InstalacionWifi() {
               </span>
               <img
                 className="qr-img"
-                src={img("QR_GT.PNG")}
+                src={img("qr.png")}
                 alt="QR para abrir GasTraker"
               />
             </div>
