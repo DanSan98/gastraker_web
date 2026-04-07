@@ -222,7 +222,7 @@ const Productos = () => {
               <li>Para tanques de 0 a 5,000 LTS.</li>
             </ul>
             <div style={styles.priceBlock}>
-              <div style={styles.price}>$2,200.00</div>
+              <div style={styles.price}>$2,088.00</div>
               <div style={styles.priceNote}>IVA incluido · envío en México*</div>
             </div>
             <button
@@ -266,7 +266,7 @@ const Productos = () => {
               <li>Para tanques de 0 a 5,000 LTS.</li>
             </ul>
             <div style={styles.priceBlock}>
-              <div style={styles.price}>$3,000.00</div>
+              <div style={styles.price}>$2,378.00</div>
               <div style={styles.priceNote}>IVA incluido · envío en México*</div>
             </div>
             <button
