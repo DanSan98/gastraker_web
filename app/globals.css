@@ -1,26 +1,1215 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #06145f;
+  --blue: #12b9eb;
+  --dark: #07111f;
+  --text: #0f172a;
+  --muted: #64748b;
+  --line: #e5e7eb;
+  --bg: #f8fafc;
+  --white: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 82px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(248, 250, 252, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  gap: 28px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+nav a:hover {
+  color: var(--navy);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.langBtn {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+  padding: 10px 13px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.smallCta,
+.cta,
+.productBtn {
+  background: var(--navy);
+  color: white;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.smallCta:hover,
+.cta:hover,
+.productBtn:hover {
+  transform: translateY(-2px);
+  background: #081c83;
+}
+
+.secondaryCta {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 700;
+  display: inline-flex;
+}
+
+.hero {
+  min-height: calc(100vh - 82px);
+  padding: 70px 6%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(18, 185, 235, 0.2), transparent 35%),
+    linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.eyebrow {
+  color: var(--blue);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 76px);
+  line-height: 0.96;
+  color: var(--dark);
+  letter-spacing: -0.06em;
+  margin-bottom: 24px;
+}
+
+.heroText > p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 620px;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.heroCard {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 34px;
+  padding: 28px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.12);
+}
+
+.heroCard img {
+  border-radius: 24px;
+}
+
+.benefits,
+.section,
+.split,
+.contact {
+  padding: 90px 6%;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 45px;
+  background: var(--dark);
+  color: white;
+}
+
+.benefits h2,
+.section h2,
+.split h2,
+.contact h2 {
+  font-size: clamp(34px, 4vw, 54px);
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.benefit {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 22px;
+  border-radius: 20px;
+  color: #e2e8f0;
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 45px;
+}
+
+.sectionHeader p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.productCard {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.07);
+}
+
+.productImage {
+  background: #f1f5f9;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.productImage img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.productCard h3 {
+  color: var(--navy);
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.productCard p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.productCard strong {
+  font-size: 22px;
+  margin-top: auto;
+}
+
+.productCard span {
+  color: var(--muted);
+  margin: 7px 0 18px;
+}
+
+.productBtn {
+  width: 100%;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+  background: white;
+}
+
+.split p {
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.installBox {
+  min-height: 320px;
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at center, rgba(18, 185, 235, 0.18), transparent 45%),
+    #f8fafc;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  padding: 40px;
+}
+
+.faqGrid {
+  max-width: 950px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.faqItem {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.faqItem h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.faqItem p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.contact {
+  text-align: center;
+  background: var(--navy);
+  color: white;
+}
+
+.contact p {
+  color: #dbeafe;
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.contactLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contactLinks a,
+.contactLinks span {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 14px 18px;
+  border-radius: 999px;
+}
+
+footer {
+  padding: 35px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  nav {
+    display: none;
+  }
+
+  .hero,
+  .benefits,
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .productGrid,
+  .faqGrid,
+  .benefitGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 45px;
+  }
+
+  .header {
+    padding: 0 4%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .smallCta {
+    display: none;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+  }
+
+  .cta,
+  .secondaryCta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+.carouselCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselCard img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--navy);
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: 0.2s ease;
+}
+
+.carouselArrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.carouselArrow.left {
+  left: 18px;
+}
+
+.carouselArrow.right {
+  right: 18px;
+}
+
+.carouselInfo {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 14px;
+  border-radius: 999px;
+  background: rgba(7, 17, 31, 0.78);
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.carouselInfo span {
+  font-weight: 800;
+}
+
+.carouselDots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.dot.active {
+  width: 24px;
+  background: var(--blue);
+}
+
+.benefitsSubtitle {
+  color: #cbd5e1;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 430px;
+}
+
+.wifiBenefits {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.moreInfoBtn {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 14px;
+  transition: 0.2s ease;
+}
+
+.moreInfoBtn:hover {
+  background: #f8fafc;
+  transform: translateY(-1px);
+}
+
+.detailsList {
+  list-style: none;
+  display: grid;
+  gap: 9px;
+  margin-bottom: 18px;
+  padding: 14px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  max-height: 190px;
+  overflow-y: auto;
+}
+
+.detailsList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.detailsList::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.detailsList li {
+  color: var(--muted);
+  line-height: 1.35;
+  font-size: 14px;
+  position: relative;
+  padding-left: 22px;
+}
+
+@media (max-width: 1100px) {
+  .wifiBenefits {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .wifiBenefits {
+    grid-template-columns: 1fr;
+  }
+
+  .carouselInfo {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+}
+.productCard {
+  align-self: start;
+}
+.installationSection {
+  background: white;
+}
+
+.installProductGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 34px;
+}
+
+.installProductCard {
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  border-radius: 26px;
+  padding: 18px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.installProductCard:hover,
+.installProductCard.active {
+  background: white;
+  border-color: var(--blue);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.1);
+  transform: translateY(-2px);
+}
+
+.installProductCard img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+
+.installProductCard h3 {
+  color: var(--navy);
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.installProductCard p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.installDetails {
+  display: grid;
+  gap: 22px;
+}
+
+.installBlock {
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.installBlock h3,
+.manualBox h3 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.installSteps {
+  display: grid;
+  gap: 12px;
+  padding-left: 22px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.installSteps li::marker {
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.sensorPhotoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+  align-items: start;
+}
+
+.sensorPhoto {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0;
+  text-align: center;
+}
+
+.sensorPhoto img {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 20px;
+}
+
+.sensorPhoto figcaption {
+  margin-top: 0px;
+  padding: 0 6px;
+  font-size: 17px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--navy);
+}
+
+.installTwoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.manualBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: 28px;
+  padding: 28px;
+  background: linear-gradient(135deg, #f8fafc, #eef7ff);
+  color: var(--text);
+  border: 1px solid #dbeafe;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.manualBox h3 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.manualBox p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.manualBox .eyebrow {
+  color: var(--blue);
+}
+
+.manualBox .productBtn {
+  width: auto;
+  min-width: 170px;
+  background: var(--blue);
+  color: white;
+}
+
+.manualBox .productBtn:hover {
+  background: #0ea8d8;
+}
+.installSteps strong {
+  color: var(--navy);
+  font-weight: 900;
+}
+.wifiConfigBox {
+  border: 1px solid #dbeafe;
+  background: linear-gradient(135deg, #ffffff, #f0f9ff);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
+}
+
+.accordionHeader,
+.subAccordionHeader {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--navy);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  text-align: left;
+}
+
+.accordionHeader {
+  background: #eef7ff;
+}
+
+.subAccordionHeader {
+  font-size: 19px;
+  border-top: 1px solid #dbeafe;
+  background: white;
+}
+
+.accordionContent {
+  display: grid;
+  gap: 0;
+}
+
+.wifiStepsBox {
+  padding: 24px 28px;
+  background: #f8fafc;
+  border-top: 1px solid var(--line);
+}
+
+.qrHelpBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.qrHelpBox h4 {
+  color: var(--navy);
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.qrHelpBox p {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.qrHelpBox img {
+  border-radius: 14px;
+  background: white;
+}
+
+.resourceButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.outlineResourceBtn {
+  border: 1px solid #bfdbfe;
+  background: white;
+  color: var(--navy);
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 800;
+  display: inline-flex;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.outlineResourceBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--blue);
+  background: #f0f9ff;
+}
+
+.helpInstallBox {
+  text-align: center;
+  border: 1px solid #dbeafe;
+  background: white;
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.05);
+}
+
+.helpInstallBox h3 {
+  color: var(--navy);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.helpInstallBox p {
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.helpInstallBox .productBtn {
+  width: auto;
+  min-width: 220px;
+}
+
+@media (max-width: 900px) {
+  .qrHelpBox,
+  .resourceButtons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resourceButtons,
+  .resourceButtons a,
+  .helpInstallBox .productBtn {
+    width: 100%;
+  }
+}
+.faqAccordion {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.faqAccordionItem {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+.faqAccordionQuestion {
+  width: 100%;
+  border: 0;
+  background: white;
+  color: var(--text);
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  text-align: left;
+  font-size: 21px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.faqAccordionQuestion:hover {
+  background: #f8fafc;
+}
+
+.faqAccordionQuestion span:last-child {
+  color: var(--navy);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.faqAccordionAnswer {
+  padding: 0 24px 22px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 17px;
+  border-top: 1px solid var(--line);
+}
+
+.faqAccordionAnswer p {
+  padding-top: 18px;
+}
+.contactSection {
+  background: #f8fafc;
+  color: var(--text);
+}
+
+.contactHeader p {
+  color: var(--muted);
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contactCard,
+.locationCard {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.contactCard h3,
+.locationCard h3 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.locationCard p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.contactForm {
+  display: grid;
+  gap: 14px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 14px 16px;
+  font-size: 16px;
+  color: var(--text);
+  outline: none;
+  font-family: inherit;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: var(--blue);
+  background: white;
+}
+
+.contactLinks.clean {
+  margin-top: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.contactLinks.clean a,
+.contactLinks.clean span {
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.locationImage {
+  width: 100%;
+  max-height: 230px;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+.mapFrame {
+  width: 100%;
+  height: 330px;
+  border: 0;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.mapBtn {
+  margin-top: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+.faq {
+  padding-bottom: 30px;
+}
+
+.contactSection {
+  padding-top: 30px;
+}
+#inicio,
+#productos,
+#instalacion,
+#soporte,
+#contacto {
+  scroll-margin-top: 100px;
+}
+.productBtn {
+  border: none;
+  cursor: pointer;
+}
+
+.shopModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(7, 17, 31, 0.62);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.shopModal {
+  width: 100%;
+  max-width: 440px;
+  background: white;
+  border-radius: 28px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.22);
+}
+
+.shopModal h3 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.shopModal p {
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.shopQuantityInput {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  color: var(--text);
+  border-radius: 18px;
+  padding: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  outline: none;
+}
+
+.shopQuantityInput:focus {
+  border-color: var(--blue);
+  background: white;
+}
+
+.shopModalActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.shopCancelBtn,
+.shopPayBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.shopCancelBtn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.shopPayBtn {
+  background: var(--navy);
+  color: white;
+}
+
+.shopPayBtn:hover {
+  background: #081c83;
+}
+
+@media (max-width: 520px) {
+  .shopModalActions {
+    grid-template-columns: 1fr;
+  }
+}
+.productBtn {
+  border: none;
+  cursor: pointer;
+}
+
+.shopModalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(7, 17, 31, 0.65);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.shopModal {
+  width: 100%;
+  max-width: 440px;
+  background: white;
+  border-radius: 28px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+}
+
+.shopModal h3 {
+  color: var(--navy);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.shopModal p {
+  color: var(--muted);
+  line-height: 1.45;
+  margin-bottom: 20px;
+}
+
+.shopQuantityInput {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  color: var(--text);
+  border-radius: 18px;
+  padding: 16px;
+  font-size: 22px;
+  font-weight: 800;
+  text-align: center;
+  outline: none;
+}
+
+.shopModalActions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.shopCancelBtn,
+.shopPayBtn {
+  border: none;
+  border-radius: 999px;
+  padding: 14px 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.shopCancelBtn {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.shopPayBtn {
+  background: var(--navy);
+  color: white;
+}
+
+.shopPayBtn:hover {
+  background: #081c83;
 }
