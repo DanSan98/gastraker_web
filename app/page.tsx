@@ -39,7 +39,7 @@ const text = {
       {
         name: "GasTraker WiFi",
         img: "/equipo_wifi.png",
-        desc: "Consulta litros y porcentaje desde tu celular. El modelo más completo.",
+        desc: "Consulta litros y porcentaje desde tu celular. Incluye 2 años de servicio; después $20 MXN/mes.",
         price: "$1,624 MXN",
         total: "Total con envío",
         details: [
@@ -56,6 +56,8 @@ const text = {
           "Estadísticas de consumo diario, semanal y mensual.",
           "Alertas de consumos inusuales.",
           "2 años de servicio de app incluido.",
+          "Después de los 2 años, la mensualidad es de $20 MXN.",
+          "Con pago anual ahorras 16.67%: pagas 10 meses y recibes 12 meses de servicio.",
         ],
       },
       {
